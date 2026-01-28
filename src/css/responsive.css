@@ -1,0 +1,13 @@
+@media(max-width:465px ) {
+    .card-fundo {
+        width: 280px;
+
+    }
+
+    .btn {
+        right: 97.3px;
+        top: 0.5px;
+        bottom: 10px;
+    }
+
+}
