@@ -6,30 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Manrope:wght@200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Manrope:wght@200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="src/css/variables.css">
   <link rel="stylesheet" href="./src/css/style.css">
   <link rel="stylesheet" href="src/css/responsive.css">
   <title>Frontend Mentor | Advice generator app</title>
 </head>
+
 <body>
   <main>
     <section class="card-fundo">
       <div class="card">
         <h2 class="card-titulo"> ADVICE #117</h2>
-        <p class="card-frase">
+        <p id="card-conselho" class="card-frase">
           "it is easy to sit up and take notice, what's difficult is getting up and taking action."
         </p>
         <img src="src/images/pattern-divider-desktop.svg" alt="">
-        <div class="botao">
+      </div>
+      <div id="btn-trocar-conselho" class="container-botao">
         <button class="btn">
-          <img src="src/images/icon-dice.svg" alt=""></button>
-        </div>
       </div>
     </section>
   </main>
 
+  <script src="src/js/index.js"></script>
 </body>
 
 </html>

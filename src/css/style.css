@@ -1,6 +1,10 @@
+html{
+    font-size: 62.5%;
+}
+
 body {
-    background-color: hsl(218, 23%, 16%);
-    color: hsl(193, 38%, 86%);
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-letra);
     font-weight: 800;
     font-family: 'Manrope';
 }
@@ -10,16 +14,17 @@ main {
     height: 100vh;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .card-fundo {
     display: flex;
-    background-color: hsl(217, 19%, 24%);
+    flex-direction: column;
+    background-color: var(--cor-secundaria);
     width: 320px;
     height: 200px;
     border-radius: 10px;
+    position: relative;
+    animation: flutuar 3s ease-out infinite;
 }
 
 .card {
@@ -36,7 +41,7 @@ main {
 
 .card-titulo {
     font-size: 8px;
-    color: hsl(150, 100%, 66%);
+    color: var(--cor-principal);
     letter-spacing: 2px;
 }
 
@@ -53,24 +58,43 @@ width: 100%;
 
 .btn {
     position: absolute;
-    right: 117.1px;
-    top: 10px;
+    width: 18px;
+    height: 18px;
+    transition: 0.3s ease-in-out;
+    background-image: url(../images/icon-dice.svg);
+    background-size: contain;
+    background-position: center;
+    background-color: var(--cor-principal);
+    border: none;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.container-botao {
     width: 35px;
     height: 35px;
-    text-align: center;
-    background-color: hsl(150, 100%, 66%);
-    border: 10px solid hsl(150, 100%, 66%);
+    border: 22px solid var(--cor-principal);
     border-radius: 50%;
-    transition: 0.3s ease-in-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -2rem;
+    right: 13.8rem;
 }
 
-.botao {
-    position: relative;
-    width: 100%;
-}
-.btn:hover {
+.container-botao:hover {
     cursor: pointer;
-    box-shadow: 0px 1px 5px 3px hsl(150, 100%, 66%);
+    box-shadow: 0px 1px 5px 3px var(--cor-principal);
+    transform: scale(1.05);
 
+}
 
+@keyframes flutuar {
+    0% , 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
