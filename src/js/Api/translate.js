@@ -1,5 +1,11 @@
+import { state } from "../state/state.js";
+
 async function traduzirConselho(conselho, lang) {
   try {
+    if(conselho === null){
+      return "erro ao buscar conselho"
+    }
+
     const res = await fetch(
       `https://api.mymemory.translated.net/get?q=${encodeURIComponent(conselho)}&langpair=en|${lang}`,
     );
@@ -13,7 +19,9 @@ async function traduzirConselho(conselho, lang) {
     return traduzido;
   } catch (error) {
     console.log("ERRO AO TRADUZIR");
-    console.error(error);
+    state.status = "Failed";
+
+    state.error = "error";
     return null;
   }
 }
