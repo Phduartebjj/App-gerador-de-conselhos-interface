@@ -1,6 +1,7 @@
 const botao = document.getElementById("btn-trocar-conselho");
 const cardConselho = document.getElementById("card-conselho");
 const urlConselho = "https://api.adviceslip.com/advice";
+
 async function buscarConselho() {
   try {
     let conselho = await fetch(urlConselho);
@@ -18,28 +19,32 @@ async function buscarConselho() {
 
 async function fazerTraducao(conselho) {
   try {
-    let res = await fetch(
+    const res = await fetch(
       `https://api.mymemory.translated.net/get?q=${encodeURIComponent(conselho)}&langpair=en|pt`,
     );
 
-    let traducao = await res.json();
-    let conselhoTraduzido = traducao.responseData.translatedText;
-    return conselhoTraduzido;
+    if (!res.ok) {
+      throw new Error("Erro ao traduzir o conselho.");
+    }
 
+    const traducao = await res.json();
+    const conselhoTraduzido = traducao.responseData.translatedText;
+    return conselhoTraduzido;
   } catch (error) {
     console.log("ERRO AO TRADUZIR: ");
     console.error(error);
   }
 }
-fazerTraducao("hello");
 
-async function ExibirConselho() {
+async function exibirConselho() {
   const conselhoTirado = await buscarConselho();
+  if (!conselhoTirado) return;
   console.log("Conselho tirado: ", conselhoTirado);
   let conselhoAcessado = await fazerTraducao(conselhoTirado.slip.advice);
   cardConselho.innerText = `${conselhoAcessado}`;
 }
 
 botao.addEventListener("click", () => {
-  ExibirConselho();
+    cardConselho.textContent = "Buscando conselho..."
+  exibirConselho();
 });
