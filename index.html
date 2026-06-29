@@ -22,7 +22,43 @@
     <title>Advice generator</title>
   </head>
   <body>
+    <header class="header">
+      <h1>Advice Generator</h1>
+      <nav class="nav-bar">
+        <button type="button" value="pt-br">
+          <img
+            src="src/images/icons/bandeira-brasil.svg"
+            alt="Bandeira do Brasil"
+          />
+        </button>
+        <button type="button" value="es">
+          <img
+            src="src/images/icons/bandeira-brasil.svg"
+            alt="Bandeira da Espanha"
+          />
+        </button>
+      </nav>
+    </header>
 
-    <script type="module" src="src/js/script.js" ></script>
+    <main class="main">
+      <div class="card-conselho">
+        <h2>ADVICE #117</h2>
+        <p>Clique no botão para gerar o seu conselho</p>
+        <picture>
+          <source
+            media="(max-width: 425px)"
+            srcset="src/images/ui/pattern-divider-mobile.svg"
+          />
+          <img src="src/images/ui/pattern-divider-desktop.svg" alt="divider" />
+        </picture>
+        <button class="btn-conselho">
+          <img
+            src="src/images/ui/icon-dice.svg"
+            alt="botão de gerar conselho"
+          />
+        </button>
+      </div>
+    </main>
+    <script type="module" src="src/js/script.js"></script>
   </body>
 </html>
