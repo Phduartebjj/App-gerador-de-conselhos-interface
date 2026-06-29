@@ -1,0 +1,14 @@
+@media (max-width: 420px) {
+  .nav-bar {
+    width: 30rem;
+  }
+
+  .card-conselho {
+    width: 28rem;
+  }
+
+  .nav-menu {
+    top: 3rem;
+    right: 0.6rem;
+  }
+}
