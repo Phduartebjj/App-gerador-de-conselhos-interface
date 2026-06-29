@@ -1,6 +1,18 @@
 const botao = document.getElementById("btn-trocar-conselho")
 const cardConselho = document.getElementById("card-conselho");
 const urlConselho = "https://api.adviceslip.com/advice";
+const idiomaBrasil = document.getElementById("btn-pt-br")
+const idiomaEspanhol = document.getElementById("btn-es")
+
+let idiomaAtual = "pt"
+
+idiomaBrasil.addEventListener("click",i =>{
+    idiomaAtual = "pt"
+})
+idiomaEspanhol.addEventListener("click",i =>{
+    idiomaAtual = "es"
+})
+
 
 async function buscarConselho() {
   try {
@@ -20,7 +32,7 @@ async function buscarConselho() {
 async function fazerTraducao(conselho) {
   try {
     const res = await fetch(
-      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(conselho)}&langpair=en|pt`,
+      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(conselho)}&langpair=en|${idiomaAtual}`,
     );
 
     if (!res.ok) {

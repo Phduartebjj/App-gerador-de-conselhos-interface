@@ -7,11 +7,17 @@ body {
     color: var(--cor-letra);
     font-weight: 800;
     font-family: 'Manrope';
+    overflow-x: hidden;
 }
+
+header{
+    padding: 0 9rem;
+}
+
 main {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     align-items: center;
     justify-content: center;
 }
@@ -97,4 +103,28 @@ width: 100%;
     50% {
         transform: translateY(-10px);
     }
+}
+
+.btn-pt-br,
+.btn-es {
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* ou contain */
+}
+
+.btn-pt-br {
+    background-image: url("../images/icons/bandeira-brasil.svg");
+}
+
+.btn:disabled{
+    opacity: 0.5;
+    cursor:not-allowed
+}
+
+.btn-es{
+    background-image: url("../images/icons/bandeira-espanha.svg");
 }
