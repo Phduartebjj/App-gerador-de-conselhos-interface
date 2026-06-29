@@ -1,4 +1,4 @@
-const botao = document.getElementById("btn-trocar-conselho");
+const botao = document.getElementById("btn-trocar-conselho")
 const cardConselho = document.getElementById("card-conselho");
 const urlConselho = "https://api.adviceslip.com/advice";
 
@@ -37,14 +37,22 @@ async function fazerTraducao(conselho) {
 }
 
 async function exibirConselho() {
-  const conselhoTirado = await buscarConselho();
-  if (!conselhoTirado) return;
-  console.log("Conselho tirado: ", conselhoTirado);
-  let conselhoAcessado = await fazerTraducao(conselhoTirado.slip.advice);
-  cardConselho.innerText = `${conselhoAcessado}`;
+  botao.disabled = true;
+  console.log("oi");
+  try {
+    const conselhoTirado = await buscarConselho();
+    if (!conselhoTirado) return;
+    console.log("Conselho tirado: ", conselhoTirado);
+    const conselhoAcessado = await fazerTraducao(conselhoTirado.slip.advice);
+    cardConselho.innerText = `${conselhoAcessado}`;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    botao.disabled = false;
+  }
 }
 
 botao.addEventListener("click", () => {
-    cardConselho.textContent = "Buscando conselho..."
+  cardConselho.textContent = "Buscando conselho...";
   exibirConselho();
 });
