@@ -23,20 +23,34 @@
   </head>
   <body>
     <header class="header">
-      <h1>Advice Generator</h1>
       <nav class="nav-bar">
-        <button type="button" value="pt-br">
-          <img
-            src="src/images/icons/bandeira-brasil.svg"
-            alt="Bandeira do Brasil"
-          />
-        </button>
-        <button type="button" value="es">
-          <img
-            src="src/images/icons/bandeira-brasil.svg"
-            alt="Bandeira da Espanha"
-          />
-        </button>
+        <h1>Advice Generator</h1>
+
+        <input type="checkbox" name="" class="menu-toggle" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon"
+          ><img src="src/images/ui/ícone.svg" alt="menu mobile"
+        /></label>
+
+        <nav class="nav-menu">
+          <ul>
+            <li>
+              <button type="button" value="pt-br" class="button idiomaBrasi">
+                <img
+                  src="src/images/icons/bandeira-brasil.svg"
+                  alt="Bandeira do Brasil"
+                />
+              </button>
+            </li>
+            <li>
+              <button type="button" value="es" class="button idiomaBrasi">
+                <img
+                  src="src/images/icons/bandeira-espanha.svg"
+                  alt="Bandeira da Espanha"
+                />
+              </button>
+            </li>
+          </ul>
+        </nav>
       </nav>
     </header>
 
@@ -51,12 +65,7 @@
           />
           <img src="src/images/ui/pattern-divider-desktop.svg" alt="divider" />
         </picture>
-        <button class="btn-conselho">
-          <img
-            src="src/images/ui/icon-dice.svg"
-            alt="botão de gerar conselho"
-          />
-        </button>
+        <button class="button btn-conselho"></button>
       </div>
     </main>
     <script type="module" src="src/js/script.js"></script>
