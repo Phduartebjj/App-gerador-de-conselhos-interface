@@ -115,6 +115,7 @@ main {
   gap: 2rem;
   text-align: center;
   position: relative;
+  animation: float 3s linear infinite;
 }
 
 .card-conselho picture img {
@@ -133,7 +134,7 @@ main {
   font-size: 1rem;
 }
 
-.card-erro{
+.card-erro {
   display: flex;
   width: 22rem;
   height: 10rem;
@@ -169,24 +170,7 @@ main {
   transform: translateX(-50%) scale(1.1);
 }
 
-@keyframes spin {
-  0% {
-    transform: translateX(-50%) rotate(0deg);
-  }
-  100% {
-    transform: translateX(-50%) rotate(360deg);
-  }
-}
-
-@keyframes fade {
-  0%,100% {
-    opacity: 0.3;
-  } 50%{
-    opacity: 1;
-  }
-}
-
-.buscando{
+.buscando {
   animation: fade 1.7s linear infinite;
 }
 
@@ -201,7 +185,7 @@ main {
   overflow: visible;
 }
 
-.themeMode{
+.themeMode {
   display: flex;
 }
 
@@ -209,13 +193,40 @@ main {
   display: none;
 }
 
-.lightMode{
+.lightMode {
   display: none;
 }
-  
-  .showTheme {
-    opacity: 1;
-    overflow: visible;
-    display: block;
-  }
 
+.showTheme {
+  opacity: 1;
+  overflow: visible;
+  display: block;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,100%{
+    transform: translateY(0px);
+  } 50%{
+    transform: translateY(-12px);
+
+  }
+}
