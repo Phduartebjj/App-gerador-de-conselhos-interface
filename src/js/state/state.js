@@ -4,12 +4,4 @@ const state = {
     language: "pt",
     error:null
 }
-
-function estadoPadrao(){
-    state.status = "idle"
-    state.advice = null
-    state.language = "pt"
-    state.error = null
-}
-
-export {state,estadoPadrao}
+export {state}

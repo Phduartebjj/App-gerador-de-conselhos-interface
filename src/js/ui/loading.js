@@ -4,16 +4,13 @@ const btnConselho = document.getElementById("btn-conselho");
 const cardConselho = document.querySelector(".texto-conselho");
 
 function carregandoConselho(status) {
+  btnConselho.disabled = status;
   if (status) {
     btnConselho.classList.add("carregando");
-    btnConselho.disabled = true;
-    cardConselho.textContent = "Buscando...";
     cardConselho.classList.add("buscando")
-    state.status = "loading";
+    cardConselho.textContent = "Buscando...";
 } else {
     btnConselho.classList.remove("carregando");
-    btnConselho.disabled = false;
-    state.status = "Sucessful";
     cardConselho.classList.remove("buscando")
   }
 }

@@ -19,9 +19,6 @@ async function traduzirConselho(conselho, lang) {
     return traduzido;
   } catch (error) {
     console.log("ERRO AO TRADUZIR");
-    state.status = "Failed";
-
-    state.error = "error";
     return null;
   }
 }

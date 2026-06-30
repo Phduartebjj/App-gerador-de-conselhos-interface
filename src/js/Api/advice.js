@@ -11,12 +11,8 @@ async function buscarConselho() {
     const data = await response.json();
 
     const conselho = data.slip.advice;
-
-    state.advice = conselho
     return conselho;
   } catch (error) {
-    state.status = "Failed"
-    state.error = "error"
     console.log("Erro ao buscar conselho");
     console.error(error);
     return null;
