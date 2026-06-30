@@ -34,7 +34,12 @@
         <nav class="nav-menu">
           <ul>
             <li>
-              <button type="button" value="pt-br" class="button idiomaBrasi">
+              <button
+                type="button"
+                value="pt"
+                class="button idiomaBrasil"
+                id="idiomaBrasil"
+              >
                 <img
                   src="src/images/icons/bandeira-brasil.svg"
                   alt="Bandeira do Brasil"
@@ -42,7 +47,7 @@
               </button>
             </li>
             <li>
-              <button type="button" value="es" class="button idiomaBrasi">
+              <button type="button" value="es" class="button idiomaEspanhol">
                 <img
                   src="src/images/icons/bandeira-espanha.svg"
                   alt="Bandeira da Espanha"
@@ -57,7 +62,7 @@
     <main class="main">
       <div class="card-conselho">
         <h2>ADVICE #117</h2>
-        <p>Clique no botão para gerar o seu conselho</p>
+        <p class="texto-conselho">Clique no botão para gerar o seu conselho</p>
         <picture>
           <source
             media="(max-width: 425px)"
@@ -65,7 +70,7 @@
           />
           <img src="src/images/ui/pattern-divider-desktop.svg" alt="divider" />
         </picture>
-        <button class="button btn-conselho"></button>
+        <button id="btn-conselho" class="button btn-conselho"></button>
       </div>
     </main>
     <script type="module" src="src/js/script.js"></script>

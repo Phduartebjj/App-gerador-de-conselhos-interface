@@ -63,13 +63,13 @@ header {
 .nav-menu {
   position: absolute;
   background-color: var(--cor-secundaria);
-  min-width: 80px;
+  min-width: 50px;
   display: flex;
   justify-content: center;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   gap: 1rem;
   right: 2rem;
-  top: 3rem;
+  top: 3.8rem;
   border-radius: 0px 0px 15px 15px;
   opacity: 0;
   visibility: hidden;
@@ -78,7 +78,6 @@ header {
 .nav-menu ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
   gap: 1rem;
   width: 100%;
   text-align: center;
@@ -100,6 +99,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .card-conselho {
@@ -133,6 +133,20 @@ main {
   font-size: 1rem;
 }
 
+.card-erro{
+  display: flex;
+  width: 22rem;
+  height: 10rem;
+  position: absolute;
+  border-radius: 15px;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: var(--cor-secundaria);
+}
+
 .btn-conselho {
   width: 40px;
   height: 40px;
@@ -147,11 +161,42 @@ main {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-
   transition: all 0.25s ease;
 }
 
 .btn-conselho:hover {
   box-shadow: 0px 0px 25px var(--cor-principal);
   transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  0%,100% {
+    opacity: 0.3;
+  } 50%{
+    opacity: 1;
+  }
+}
+
+.buscando{
+  animation: fade 1.7s linear infinite;
+}
+
+.carregando {
+  animation: spin 0.7s linear infinite;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.show {
+  opacity: 1;
+  overflow: visible;
 }
