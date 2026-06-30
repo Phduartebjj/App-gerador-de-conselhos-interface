@@ -6,6 +6,8 @@ import { salvarState } from "./utils/storage.js";
 import { renderConselho } from "./ui/render.js";
 import { mostrarErro } from "./ui/error.js";
 
+
+
 export async function chamarConselho() {
   try {
     carregandoConselho(true);

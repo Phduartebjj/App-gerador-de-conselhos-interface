@@ -2,6 +2,7 @@ import { carregarState } from "./utils/storage.js";
 import { buscarConselho } from "./Api/advice.js";
 import { traduzirConselho } from "./Api/translate.js";
 import { carregandoConselho } from "./ui/loading.js";
+import "./ui/theme.js"
 import { state } from "./state/state.js";
 import "./ui/render.js";
 import "./ui/error.js";

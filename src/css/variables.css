@@ -1,6 +1,18 @@
 :root {
-    --cor-principal: hsl(150, 100%, 66%);
-    --cor-secundaria:hsl(217, 19%, 24%);
-    --cor-fundo-pagina:hsl(218, 23%, 16%) ;
-    --cor-letra: hsl(193, 38%, 86%);
+  --cor-principal: hsl(150, 100%, 66%);
+  --cor-secundaria: hsl(217, 19%, 24%);
+  --cor-fundo-pagina: hsl(218, 23%, 16%);
+  --cor-letra: hsl(193, 38%, 86%);
+}
+
+.lightModeTheme {
+  --cor-principal: hsl(150, 100%, 45%);
+
+  --cor-secundaria: hsl(0, 0%, 98%);
+  /* card levemente off-white */
+
+  --cor-fundo-pagina: hsl(210, 30%, 92%);
+  /* fundo cinza claro, não branco puro */
+
+  --cor-letra: hsl(217, 19%, 24%);
 }

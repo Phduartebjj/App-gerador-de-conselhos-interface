@@ -201,3 +201,21 @@ main {
   overflow: visible;
 }
 
+.themeMode{
+  display: flex;
+}
+
+.darkMode {
+  display: none;
+}
+
+.lightMode{
+  display: none;
+}
+  
+  .showTheme {
+    opacity: 1;
+    overflow: visible;
+    display: block;
+  }
+
