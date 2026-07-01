@@ -28,8 +28,8 @@ if (saved) {
 }
 
 btnConselho.addEventListener("click", () => {
-  if (state.status = "loading") return
-  chamarConselho
+  if (state.status === "loading") return
+  chamarConselho()
 });
 
 btnBrasil.addEventListener("click", () => {
