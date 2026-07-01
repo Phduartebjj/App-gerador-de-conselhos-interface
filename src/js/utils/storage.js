@@ -1,12 +1,13 @@
 
-function salvarState (state){
-    localStorage.setItem("state",JSON.stringify(state))
-}
-console.log(carregarState())
-function carregarState(){
-    
-    return JSON.parse(localStorage.getItem("state"))
+function salvarState(state) {
+    localStorage.setItem("state", JSON.stringify(state))
 }
 
-export {salvarState, carregarState}
+function carregarState() {
+    const data = localStorage.getItem("state")
+    if (!data) return null
+    return JSON.parse(data)
+}
+
+export { salvarState, carregarState }
 
