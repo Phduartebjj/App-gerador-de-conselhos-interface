@@ -5,8 +5,7 @@ import { carregandoConselho } from "./ui/loading.js";
 import { salvarState } from "./utils/storage.js";
 import { renderConselho } from "./ui/render.js";
 import { mostrarErro } from "./ui/error.js";
-
-
+import { darkMode, lightMode } from "./ui/theme.js";
 
 export async function chamarConselho() {
   try {
@@ -28,4 +27,19 @@ export async function chamarConselho() {
   } finally {
     carregandoConselho(false);
   }
+}
+
+export function trocarTema() {
+  if (state.theme === "light") {
+    state.theme = "dark"
+  } else {
+    state.theme = "light"
+  }
+}
+
+export function renderizarTema() {
+  if (state.theme === "light") {
+    lightMode()
+  } else
+    darkMode()
 }

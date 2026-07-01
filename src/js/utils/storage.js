@@ -4,6 +4,7 @@ function salvarState (state){
 }
 console.log(carregarState())
 function carregarState(){
+    
     return JSON.parse(localStorage.getItem("state"))
 }
 
