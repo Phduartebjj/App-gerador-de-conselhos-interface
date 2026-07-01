@@ -14,9 +14,9 @@ const btnConselho = document.querySelector(".btn-conselho");
 const btnThemes = document.querySelector(".themeMode");
 
 btnThemes.addEventListener("click", () => {
- trocarTema()
- renderizarTema()
- salvarState(state)
+  trocarTema()
+  renderizarTema()
+  salvarState(state)
 })
 
 let saved = carregarState();
@@ -27,7 +27,10 @@ if (saved) {
   state.advice = saved.advice;
 }
 
-btnConselho.addEventListener("click", chamarConselho);
+btnConselho.addEventListener("click", () => {
+  if (state.status = "loading") return
+  chamarConselho
+});
 
 btnBrasil.addEventListener("click", () => {
   state.language = "pt";

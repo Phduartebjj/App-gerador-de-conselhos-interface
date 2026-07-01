@@ -9,6 +9,8 @@ import { darkMode, lightMode } from "./ui/theme.js";
 
 export async function chamarConselho() {
   try {
+    if (state.status === "loading") return
+
     carregandoConselho(true);
     state.status = "loading";
 
