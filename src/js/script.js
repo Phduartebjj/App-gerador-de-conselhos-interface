@@ -2,7 +2,7 @@ import { carregarState, salvarState } from "./utils/storage.js";
 import { buscarConselho } from "./Api/advice.js";
 import { traduzirConselho } from "./Api/translate.js";
 import { carregandoConselho } from "./ui/loading.js";
-import "./ui/theme.js"
+import "./ui/theme.js";
 import { state } from "./state/state.js";
 import "./ui/render.js";
 import "./ui/error.js";
@@ -14,10 +14,10 @@ const btnConselho = document.querySelector(".btn-conselho");
 const btnThemes = document.querySelector(".themeMode");
 
 btnThemes.addEventListener("click", () => {
-  trocarTema()
-  renderizarTema()
-  salvarState(state)
-})
+  trocarTema();
+  renderizarTema();
+  salvarState(state);
+});
 
 let saved = carregarState();
 
@@ -28,17 +28,21 @@ if (saved) {
 }
 
 btnConselho.addEventListener("click", () => {
-  if (state.status === "loading") return
-  chamarConselho()
+  if (state.status === "loading") return;
+  chamarConselho();
 });
 
 btnBrasil.addEventListener("click", () => {
   state.language = "pt";
-  salvarState(state)
+  salvarState(state);
 });
 btnEspanhol.addEventListener("click", () => {
   state.language = "es";
-  salvarState(state)
+  salvarState(state);
 });
 
-renderizarTema()
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js");
+}
+
+renderizarTema();
