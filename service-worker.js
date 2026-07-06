@@ -1,5 +1,10 @@
 const CACHE_NAME = "advice-v1";
 
+const API_URLS = [
+  "api.adviceslip.com",
+  "api.mymemory.translated.net"
+]
+
 const ASSETS = [
   "/",
   "/manifest.json",
@@ -38,12 +43,13 @@ const ASSETS = [
   "/src/js/controller.js",
   "/src/js/script.js",
 ];
-
+// Função para instalar o cache com os arquivos especificados
 async function instalarCache() {
   const cache = await caches.open(CACHE_NAME);
   await cache.addAll(ASSETS);
 }
 
+// Função para buscar o arquivo no cache ou na rede
 async function buscarArquivo(request) {
   const cache = await caches.match(request);
 
@@ -52,10 +58,44 @@ async function buscarArquivo(request) {
   return fetch(request)
 }
 
+async function buscarAPI(request){
+  try{
+    const response = await fetch(request)
+    return response
+  }catch(error){
+    const cache = await caches.match(request)
+    if(cache)return cache
+    return new Response("Você está offline.")
+  }
+}
+
+function ehAPI(url) {
+  return API_URLS.some(api => url.includes(api));
+}
+
+async function manterCacheAtual() {
+  const cachesExistentes = await caches.keys();
+
+  const cachesAntigos = cachesExistentes.filter(c => c !== CACHE_NAME)
+
+  await Promise.all(cachesAntigos.map(c => caches.delete(c)))
+}
+
+// Evento de instalação do Service Worker para criar o cache
 self.addEventListener("install", (event) => {
   event.waitUntil(instalarCache());
 });
 
+self.addEventListener("activate", (event) => {
+  event.waitUntil(manterCacheAtual())
+})
+
+// Evento de fetch para interceptar as requisições e buscar no cache
 self.addEventListener("fetch", (event) => {
-  event.respondWith(buscarArquivo(event.request));
+  if(ehAPI(event.request.url)){
+      event.respondWith(buscarAPI(event.request))
+  }else {
+    event.respondWith(buscarArquivo(event.request));
+  }
 });
+
