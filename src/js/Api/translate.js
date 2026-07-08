@@ -1,7 +1,7 @@
 async function traduzirConselho(conselho, lang) {
   try {
-    if(conselho === null){
-      return "erro ao buscar conselho"
+    if (conselho === null) {
+      return "erro ao buscar conselho";
     }
 
     const res = await fetch(
