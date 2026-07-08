@@ -3,7 +3,7 @@ const CACHE_NAME = "advice-v2";
 const API_URLS = [
   "api.adviceslip.com",
   "api.mymemory.translated.net"
-]
+];
 
 const ASSETS = [
   "/",
@@ -43,61 +43,91 @@ const ASSETS = [
   "/src/js/controller.js",
   "/src/js/script.js",
 ];
-// Função para instalar o cache com os arquivos especificados
+
+
 async function instalarCache() {
   const cache = await caches.open(CACHE_NAME);
+
   await cache.addAll(ASSETS);
 }
 
-// Função para buscar o arquivo no cache ou na rede
+
 async function buscarArquivo(request) {
   const cache = await caches.match(request);
 
-  if(cache) return cache;
+  if (cache) return cache;
 
-  return fetch(request)
+  return fetch(request);
 }
 
-async function buscarAPI(request){
-  try{
-    const response = await fetch(request)
-    return response
-  }catch(error){
-    const cache = await caches.match(request)
-    if(cache)return cache
+
+async function buscarAPI(request) {
+  try {
+
+    const response = await fetch(request);
+
+    return response;
+
+  } catch(error) {
+
+    const cache = await caches.match(request);
+
+    if(cache) return cache;
+
     return new Response("Você está offline.", {
       status: 503
-    })
+    });
   }
 }
+
 
 function ehAPI(url) {
   return API_URLS.some(api => url.includes(api));
 }
 
+
 async function manterCacheAtual() {
+
   const cachesExistentes = await caches.keys();
 
-  const cachesAntigos = cachesExistentes.filter(c => c !== CACHE_NAME)
+  const cachesAntigos = cachesExistentes.filter(
+    cache => cache !== CACHE_NAME
+  );
 
-  await Promise.all(cachesAntigos.map(c => caches.delete(c)))
+  await Promise.all(
+    cachesAntigos.map(cache => caches.delete(cache))
+  );
 }
 
-// Evento de instalação do Service Worker para criar o cache
+
 self.addEventListener("install", (event) => {
-  event.waitUntil(instalarCache());
+  event.waitUntil(
+    instalarCache()
+  );
 });
+
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(manterCacheAtual())
-})
-
-// Evento de fetch para interceptar as requisições e buscar no cache
-self.addEventListener("fetch", (event) => {
-  if(ehAPI(event.request.url)){
-      event.respondWith(buscarAPI(event.request))
-  }else {
-    event.respondWith(buscarArquivo(event.request));
-  }
+  event.waitUntil(
+    manterCacheAtual()
+  );
 });
 
+
+self.addEventListener("fetch", (event) => {
+
+  if (ehAPI(event.request.url)) {
+
+    event.respondWith(
+      buscarAPI(event.request)
+    );
+
+  } else {
+
+    event.respondWith(
+      buscarArquivo(event.request)
+    );
+
+  }
+
+});
