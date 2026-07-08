@@ -9,6 +9,8 @@ const ASSETS = [
   "/",
   "/manifest.json",
 
+  "/src/fonts/Manrope-VariableFont_wght.ttf",
+
   "/src/css/reset.css",
   "/src/css/responsive.css",
   "/src/css/style.css",

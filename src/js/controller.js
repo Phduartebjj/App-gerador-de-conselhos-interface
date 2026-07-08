@@ -23,6 +23,7 @@ export async function chamarConselho() {
     renderConselho(traduzido);
     salvarState(state)
   } catch (error) {
+    console.log(error.message)
     state.status = "error";
     mostrarErro(error.message);
   } finally {
