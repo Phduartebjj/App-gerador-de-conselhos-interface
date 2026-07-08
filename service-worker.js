@@ -65,7 +65,9 @@ async function buscarAPI(request){
   }catch(error){
     const cache = await caches.match(request)
     if(cache)return cache
-    return new Response("Você está offline.")
+    return new Response("Você está offline.", {
+      status: 503
+    })
   }
 }
 

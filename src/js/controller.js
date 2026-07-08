@@ -15,17 +15,16 @@ export async function chamarConselho() {
     state.status = "loading";
 
     const conselho = await buscarConselho();
-    if (!conselho) throw new Error();
-    console.log(state.language)
+
     const traduzido = await traduzirConselho(conselho, state.language);
 
     state.advice = traduzido;
-    state.status = "sucess";
+    state.status = "success";
     renderConselho(traduzido);
     salvarState(state)
   } catch (error) {
     state.status = "error";
-    mostrarErro("Erro ao buscar conselho");
+    mostrarErro(error.message);
   } finally {
     carregandoConselho(false);
   }

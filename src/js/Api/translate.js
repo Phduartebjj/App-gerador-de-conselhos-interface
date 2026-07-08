@@ -1,5 +1,3 @@
-import { state } from "../state/state.js";
-
 async function traduzirConselho(conselho, lang) {
   try {
     if(conselho === null){
@@ -18,7 +16,6 @@ async function traduzirConselho(conselho, lang) {
     const traduzido = data.responseData.translatedText;
     return traduzido;
   } catch (error) {
-    console.log("ERRO AO TRADUZIR");
     return null;
   }
 }

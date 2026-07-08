@@ -1,5 +1,3 @@
-import { state } from "../state/state.js";
-
 const btnConselho = document.getElementById("btn-conselho");
 const cardConselho = document.querySelector(".texto-conselho");
 
