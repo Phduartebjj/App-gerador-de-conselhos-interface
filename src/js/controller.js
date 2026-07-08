@@ -25,7 +25,7 @@ export async function chamarConselho() {
     salvarState(state)
   } catch (error) {
     state.status = "error";
-    showError("Erro ao buscar conselho");
+    mostrarErro("Erro ao buscar conselho");
   } finally {
     carregandoConselho(false);
   }

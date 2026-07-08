@@ -21,7 +21,7 @@ header {
   width: 2.8rem;
   height: 2.8rem;
   background-color: inherit;
-  cursor: pointer;
+  cursor: pointer;;
 }
 
 .nav-bar {
@@ -180,6 +180,11 @@ main {
   opacity: 0.4;
 }
 
+.ui-icon {
+  width: 28px;
+  height: 28px;
+}
+
 .show {
   opacity: 1;
   overflow: visible;
@@ -187,10 +192,18 @@ main {
 
 .themeMode {
   display: flex;
+  height: 30px;
+  width: 30px;
+}
+
+.btn-config{
+  width: 28px;
+  height: 28px;
 }
 
 .darkMode {
   display: none;
+
 }
 
 .lightMode {
@@ -202,6 +215,7 @@ main {
   overflow: visible;
   display: block;
 }
+
 
 @keyframes spin {
   0% {
