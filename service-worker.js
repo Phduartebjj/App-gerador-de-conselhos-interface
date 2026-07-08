@@ -1,4 +1,4 @@
-const CACHE_NAME = "advice-v2";
+const CACHE_NAME = "advice-v3";
 
 const API_URLS = [
   "api.adviceslip.com",

@@ -4,7 +4,7 @@ async function buscarConselho() {
   try {
     const response = await fetch(URL);
     if (!response.ok) {
-      throw new Error("Você está offline.");
+      throw new Error("Servidor indisponível.");
     }
 
     const data = await response.json();
@@ -12,8 +12,9 @@ async function buscarConselho() {
     const conselho = data.slip.advice;
     return conselho;
   } catch (error) {
-    console.error(error);
-    throw Error;
+    
+    console.error("Erro no buscaRCOnslho:",error);
+    throw error;
   }
 }
 

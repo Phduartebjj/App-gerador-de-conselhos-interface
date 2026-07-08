@@ -8,6 +8,8 @@ import { mostrarErro } from "./ui/error.js";
 import { darkMode, lightMode } from "./ui/theme.js";
 
 export async function chamarConselho() {
+  console.log("Entrou no controller")
+
   try {
     if (state.status === "loading") return
 
@@ -23,7 +25,8 @@ export async function chamarConselho() {
     renderConselho(traduzido);
     salvarState(state)
   } catch (error) {
-    console.log(error.message)
+    console.log("CAIU NO CATCH:", error)
+    console.log("Mensagem:", error.message)
     state.status = "error";
     mostrarErro(error.message);
   } finally {
