@@ -21,7 +21,7 @@ header {
   width: 2.8rem;
   height: 2.8rem;
   background-color: inherit;
-  cursor: pointer;;
+  cursor: pointer;
 }
 
 .nav-bar {
@@ -51,6 +51,10 @@ header {
 .menu-icon {
   width: 30px;
   height: 30px;
+}
+
+body.lightModeTheme .menu-icon {
+  filter: brightness(0.1);
 }
 
 .menu-icon img {
@@ -197,14 +201,13 @@ main {
   width: 30px;
 }
 
-.btn-config{
+.btn-config {
   width: 28px;
   height: 28px;
 }
 
 .darkMode {
   display: none;
-
 }
 
 .lightMode {
@@ -237,10 +240,11 @@ main {
 }
 
 @keyframes float {
-  0%,100%{
+  0%,
+  100% {
     transform: translateY(0px);
-  } 50%{
+  }
+  50% {
     transform: translateY(-12px);
-
   }
 }
